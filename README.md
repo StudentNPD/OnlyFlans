@@ -81,4 +81,4 @@ onlyflans/
 - [Documentación de Python](https://docs.python.org/3.2/)
 
 ## Autor
-[Natalia Peña]
+Natalia Peña
