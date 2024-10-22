@@ -4,7 +4,7 @@
 OnlyFlans es un proyecto desarrollado con Django como parte de un desafío de desarrollo web. Este proyecto sirve como introducción práctica al framework Django y sus funcionalidades básicas.
 
 ## Requisitos Previos
-- Python 3.x
+- Python 3.13.0
 - pip (Sistema de gestión de paquetes de Python)
 
 ## Instalación
