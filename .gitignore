@@ -1,2 +1,4 @@
 /onlyflansMain/__pycache__
+/webApp/__pycache__
+/webApp/migrations/__pycache__
 db.sqlite3
