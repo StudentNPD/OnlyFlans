@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib import messages
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,11 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'webApp',
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -54,7 +61,7 @@ ROOT_URLCONF = 'onlyflansMain.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "flanreact", "dist")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +82,12 @@ WSGI_APPLICATION = 'onlyflansMain.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'onlyflans',
+        'USER': 'postgres',
+        'PASSWORD': 'parabd',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -121,3 +132,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'error',
+}
+
+LOGIN_URL = '/login/'
+
+# CORS_ORIGIN_WHITELIST = ['http://localhost:5173']
+
+CORS_ORIGIN_ALLOW_ALL = True
+# cors autorización
+CORS_ALLOWED_ORIGINS = [
+   'http://localhost:5173',
+   
+]
+

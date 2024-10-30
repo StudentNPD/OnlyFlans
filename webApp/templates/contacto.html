@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div>
+    contacto
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- {{ form.non_field_errors }}
+        <label for="{{ form.customer_name.id_for_label }}">
+            {{form.customer_name.label_tag}}
+        </label>
+        <p>
+            {{form.customer_name}}
+        </p>
+        <div class="text-danger">
+            {{form.customer_name.errors}}
+        </div> -->
+
+        {{error}}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+
+{% block content%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a onlyflans</title>
+</head> -->
+
+<!-- <body> -->
+<p>Bienvenido Cliente</p>
+<ul>
+    {% for cualquiera in flan %}
+    <div style="
+                border-style: solid;
+                border-color: #000000;
+                padding: 20px;
+                text-align: center;
+                
+                ">
+        <li>Nombre: {{ cualquiera.name }}</li>
+        <li>Descripción: {{ cualquiera.description }}</li>
+        <li>
+            <img src="{{cualquiera.image_url }}" alt="" width="300">
+        </li>
+        <li>
+            {% if cualquiera.is_private == True %}
+            ✅{{cualquiera.is_private}}
+            {% else %}
+            ❌{{cualquiera.is_private}}
+            {% endif%}
+        </li>
+
+    </div>
+    <br>
+    {% endfor %}
+</ul>
+<!-- </body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,7 @@
+<h1>Login</h1>
+<form>
+    {% csrf_token %}
+    {{error}}
+    {{form}}
+    <input type="submit" class="btn btn-primary" value="Login" />
+</form>
